@@ -95,8 +95,20 @@ module.exports = AFRAME.registerComponent("ammo-constraint", {
         break;
       }
       case CONSTRAINT.SPRING: {
-        constraint = new Ammo.btGeneric6DofSpringConstraint(body, targetBody, bodyTransform, targetTransform, true);
         //TODO: enableSpring, setStiffness and setDamping
+        window.constraint = constraint = new Ammo.btGeneric6DofSpring2Constraint(body, targetBody, bodyTransform, targetTransform, 0);
+        for (let i in [0,1,2,3,4,5]) {
+          constraint.enableSpring(i, true);
+          constraint.setStiffness(i, 10.0);
+          constraint.setDamping(i, 0.75);
+        }
+        const upper = new Ammo.btVector3(-1, -1, -1);
+        const lower = new Ammo.btVector3(1, 1, 1);
+        constraint.setLinearUpperLimit(upper);
+        constraint.setLinearLowerLimit(lower);
+        constraint.setEquilibriumPoint(1, 0.0);
+        Ammo.destroy(upper);
+        Ammo.destroy(lower);
         break;
       }
       case CONSTRAINT.SLIDER: {
