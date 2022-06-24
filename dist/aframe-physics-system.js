@@ -14513,8 +14513,9 @@ module.exports = AFRAME.registerComponent("ammo-constraint", {
         break;
       }
       case CONSTRAINT.SPRING: {
+        // constraint = new Ammo.btGeneric6DofSpringConstraint(body, targetBody, bodyTransform, targetTransform, true);
         //TODO: enableSpring, setStiffness and setDamping
-        window.constraint = constraint = new Ammo.btGeneric6DofSpring2Constraint(body, targetBody, bodyTransform, targetTransform, 0);
+        window.constraint = constraint = new Ammo.btGeneric6DofSpringConstraint(body, targetBody, bodyTransform, targetTransform, 0);
         for (let i in [0,1,2,3,4,5]) {
           constraint.enableSpring(i, true);
           constraint.setStiffness(i, 10.0);
