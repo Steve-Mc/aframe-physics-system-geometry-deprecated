@@ -1,5 +1,5 @@
 {
-  "name": "aframe-physics-system",
+  "name": "aframe-physics-system-geometry-deprecated",
   "version": "4.0.1",
   "description": "Physics system for A-Frame VR, built on Cannon.js",
   "main": "index.js",
@@ -73,5 +73,11 @@
     "sinon-chai": "^2.14.0",
     "three": "^0.115.0",
     "uglify-es": "^3.3.9"
+  },
+  "directories": {
+    "doc": "docs",
+    "example": "examples",
+    "lib": "lib",
+    "test": "tests"
   }
 }
